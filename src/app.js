@@ -2,12 +2,17 @@ const express = require("express"); //referecing express server from "node-modul
 const app = express(); // call the exprees() server
 
 //calling using use
-app.use("/user",(req,res)=>{
-    res.send("calling using use")
-})
+// app.use("/user",(req,res)=>{
+//     res.send("calling using use")
+// })
 
 //This will only handle GET call to /user
-app.get("/user",(req,res)=>{
+app.get("/user/:id/:name/:passward",(req,res)=>{
+    console.log(req.params);
+    res.send({firstname:"Shirley",lastname:"Buti"})
+})
+
+app.get(/.*fly/,(req,res)=>{
     res.send({firstname:"Shirley",lastname:"Buti"})
 })
 
